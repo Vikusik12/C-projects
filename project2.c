@@ -1,3 +1,4 @@
+//Created by Viktoryia Tomason
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -5,8 +6,8 @@
 #include <math.h>                 
 #define I0 powl(10,-12)
 #define Ut 0.0258563
-double funkce(double mid)//funkce nalezení napětí podle Shockleyove rovnice
-{
+//function of finding the voltage by the Shockley equation
+double funkce(double mid)
     return I0*exp(mid/Ut);
 }
  double diode(double u0, double r, double eps)
@@ -16,23 +17,28 @@ double funkce(double mid)//funkce nalezení napětí podle Shockleyove rovnice
     double mid;
     double n_mid=0;
     double Ir;
-    while(fabs(kon-zac)>=eps)//podmínka ukončení cyklu
+    //cycle termination condition
+    while(fabs(kon-zac)>=eps)
     {
         Ir=(u0-mid)/r;
-        mid = (kon-zac)/2;// vypočítáme hodnotu ve středu intervalu;
+        //we calculate the value in the middle of the interval;
+        mid = (kon-zac)/2;
         mid=mid+zac;
-        if(n_mid==mid)//osetreni proti zacyklovani
+        //anti-cycling
+        if(n_mid==mid)
         {break;}
         n_mid=mid;
-        if(Ir>=funkce(mid))//zjistujeme, zda se nachází kořen blíže ke zacatku
+        // we find out if the root is closer to the beginning
+        if(Ir>=funkce(mid))
         zac=mid;
-        else//v opačném případě je hledaný přístup ke kořenu bliz ke konci
+        else
+        // we find out if the root is closer to the ending
         kon=mid;
     }
     return mid;
  }
 int main(int argc, char *argv[])
-{//kontrola argumentu
+{
     if(argc!=4)
     {
         printf("error: invalid arguments\n");
