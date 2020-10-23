@@ -1,3 +1,4 @@
+//Created bz Viktoryia Tomason
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +11,7 @@ typedef struct {
 } Map;
 
 
-//Funkce, ktera vraci mapu se zadanym poctem radku a sloupcu
+// Function that returns a map with a given number of rows and columns
 Map Map_ctor(int rows, int cols)
 {
 	Map map;
@@ -27,7 +28,7 @@ Map Map_ctor(int rows, int cols)
 	return map;
 	
 }
-//Funkce, ktera po obdrzeni cisla preklada do binarniho kodu a vyplni "pole"
+// A function that, after receiving the number, translates into binary code and fills in the " field"
 void map_kod(int x, char pole[])
 {
 	memset(pole, '0', 3);
@@ -49,8 +50,8 @@ void map_kod(int x, char pole[])
 	pole[3] = '\0';
 }
 
-//Funkce dostava ukazatel na strukturu mapy, souradnici, a border oznacuje dotazovanou hranici policka.Funkce vraci true, pokud na zminene hranici policka stoji stena.
-//Leva hranice odpovida 1, prava hranice odpovida 2 a horni nebo dolni hranice odpovida 3.
+// The function gets a pointer to the map structure, the coordinate system, and the border marks the requested border of the shelf.The function returns true if there is a wall at the specified shelf boundary.
+// Left border of answer 1, right border of answer 2 and upper or lower border of answer 3.
 bool isborder(Map *map, int r, int c, int border)
 {
 	char hodnota[2];
@@ -92,8 +93,8 @@ bool isborder(Map *map, int r, int c, int border)
 }
 
 
-//Funkce, ktera vrati spravny smer
-//Pravidlo prave ruky odpovida cislu 22, leve - 33.
+// A function that returns the right direction
+//Right hand rule answers number 22, left hand rule answers number 33.
 int start_border(Map *map, int r, int c, int leftright)
 {
 	if (r > map->rows - 1 || c > map->cols - 1 || r < 0 || c < 0) return 0;
@@ -179,8 +180,8 @@ int start_border(Map *map, int r, int c, int leftright)
 	return 0;
 }
 
-//Smer z leve strany odpovida 1, smer z prave strany odpovida 2 a smer shora nebo zespodu odpovida 3
-//Prochazi mapou a tiskne kazdy krok 
+// Direction from left side of answer 1, direction from right side of ANSWER 2 and direction from top or bottom of Answer 3
+// Goes through the map and prints every step 
 int bludiste(Map map, int r, int c, int par, int leftright)
 {	
 	if (r > map.rows - 1 || c > map.cols - 1 || r < 0 || c < 0) return 1;
@@ -350,8 +351,8 @@ int bludiste(Map map, int r, int c, int par, int leftright)
 	return 0;
 }
 
-
-void Map_dtor(Map *map)//Uvolnuje celou pamet v mape
+// Releases all memory in the map
+void Map_dtor(Map *map)
 {
 	if (map->cells != NULL)
 	 {
@@ -382,7 +383,7 @@ int main(int argc, char*argv[])
 	else if (strcmp(argv[1], "--test") == 0)
 	{
 
-//Otevirame soubor
+//Open file
 	FILE*fl;
 
 	fl = fopen(argv[2], "r+b");
@@ -392,10 +393,11 @@ int main(int argc, char*argv[])
     }
 	if (fl != NULL)
 	{
+		//Number of rows
 		char rows[5];
-		fscanf(fl, "%s", rows); //Ziskani poctu radku
+		fscanf(fl, "%s", rows); 
 
-		//Kontrola spravneho formatu
+		//Correct format
 		for (unsigned p = 0; p < strlen(rows); p++)
 		 {
 			 if ((rows[p] >= 'A' && rows[p] <= 'Z') || (rows[p] >= 'a' && rows[p] <= 'z')) 
@@ -406,11 +408,11 @@ int main(int argc, char*argv[])
 
 			 }
 		}
-
+		//Number of cols
 		char cols[5];
-		fscanf(fl, "%s", cols);//Ziskani poctu sloupcu
+		fscanf(fl, "%s", cols);
 
-		//Kontrola spravneho formatu
+		//Correct format
 		for (unsigned p = 0; p < strlen(cols); p++)
 		 {
 			 if ((cols[p] >= 'A' && cols[p] <= 'Z') || (cols[p] >= 'a' && cols[p] <= 'z')) 
