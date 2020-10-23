@@ -1,11 +1,14 @@
+//Created by Viktoryia Tomason
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 
-void convert(char *string, char *digit) { //funkce prevodu radku na cisla
+//number conversion function
+void convert(char *string, char *digit) { 
     while(*string!='\0') {
-         if((*string >= 'a' && *string <= 'c') ||//hledání požadovaného znaka a preklad do prislusneho cisla
+        //search for the desired character and translation into the appropriate number
+         if((*string >= 'a' && *string <= 'c') ||
            (*string >= 'A' && *string <= 'C')) {
             *digit='2';
             digit++;
@@ -68,10 +71,11 @@ void convert(char *string, char *digit) { //funkce prevodu radku na cisla
             continue;
         }
         else {
-            string++;//vyhibani mezery
+        //wriggling spaces
+            string++;
         }
     }
-  *digit='\0';//osetreni proti zbytku radku
+  *digit='\0';
 }
 
 
@@ -91,17 +95,20 @@ int main(int argc, char *argv[]) {
     }
     
     while(!feof(stdin)) {
-        fgets(name, 100, stdin);//nacitani radku
-        *(name + strlen(name)-1) = '\0';//spravny format
+        //reading a string
+        fgets(name, 100, stdin);
+        *(name + strlen(name)-1) = '\0';
+        //reading a line
         fgets(number, 100, stdin);
         *(number + strlen(number)-1) = '\0';
-
-        if(flag) {//vypis seznamu ve spravnem formate, pokud nepozadano hledani cislic
+        
+        //list in correct format
+        if(flag) {
             printf("%s, %s\n", name, number);
             continue;
         }
 
-        convert(name, converted); // converted = convert(name);
+        convert(name, converted); 
 
         if (strstr(converted, point)) {
             printf("%s, %s\n", name, number);
@@ -112,10 +119,10 @@ int main(int argc, char *argv[]) {
             found = true;
         }
         else {
-            strcat(converted,number);//spojení radku
+            strcat(converted,number);
         int value=0;
-        for(int n=0;n<strlen(point);n++)//cyklus pro hledani prerusennych posloupnosti znaku
-        {
+        //cycle to search for Broken character sequences
+        for(int n=0;n<strlen(point);n++)
             for(int i = 0; i<strlen(converted); i++)
             {
                 if (point[n]==converted[i]) 
@@ -133,7 +140,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    if(!found) {//zadna shoda
+    if(!found) {
         printf("Not found\n");
     }
 
