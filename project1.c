@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 
+
 //number conversion function
 void convert(char *string, char *digit) { 
     while(*string!='\0') {
