@@ -11,7 +11,7 @@ typedef struct {
 } Map;
 
 
-// Function that returns a map with a given number of rows and columns
+// Function that returns a map with a given number of rows and cols
 Map Map_ctor(int rows, int cols)
 {
 	Map map;
