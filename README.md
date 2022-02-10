@@ -1,5 +1,5 @@
 # C-projects
-Brno University of Technology projects in subject IZP from the faculty of information technology
+Brno University of Technology projects in subject IZP (first year subject)  from the faculty of information technology
 
 Project 1
 Simplified algorithm for finding contacts entered using a sequence of digits
