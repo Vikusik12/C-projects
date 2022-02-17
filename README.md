@@ -9,5 +9,9 @@ Snad všichni známe telefonní seznam v chytrých telefonech. Vyhledávání ta
 Project 2
 Find the working point of the diode.
 
+Najděte pracovní bod diody.
+
+Mějme jednoduché sériové zapojení diody a rezistoru. Známe Shockleyovu rovnici a jeho konstanty. Napište funkci, která pro dané vstupní napětí U_0 a odpor rezistoru R najde pracovní napětí diody odpovídající zadané přesnosti. Dále napište program, který na základě těchto vstupních parametrů na výstup vytiskne pracovní bod diody, tedy napětí a proud.
+
 Project 3
 In a given maze and its entrance there is a way out
