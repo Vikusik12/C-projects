@@ -17,3 +17,7 @@ Mějme jednoduché sériové zapojení diody a rezistoru. Známe Shockleyovu rov
 In a given maze and its entrance there is a way out
 -----------
 Vytvořte program, který v daném bludišti a jeho vstupu najde průchod ven. Bludiště je uloženo v textovém souboru ve formě obdélníkové matice celých čísel. Cílem programu je výpis souřadnic políček bludiště, přes které vede cesta z vchodu bludiště do jeho východu.
+
+# isa.cpp
+
+Na základě nabytých znalostí o protokolu naimplementuje kompatibilního klienta. Klient by měl být schopen sloužit jako „drop-in“ náhrada referenčního klienta, jak ve formátu spuštění tak i výstupu. Při nejasnostech se řiďte chováním referenčního klienta. Váš klient může obsahovat přidanou funkcionalitu, měl by však být striktně kompatibilní s referenční implementací. Dokumentace bude obsahovat popis jakýchkoli rozšíření, popisovat funkcionalitu referenční implementace není nutné.
