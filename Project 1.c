@@ -120,16 +120,3 @@ int main(int argc, char *argv[])
    printf("Not found\n");
      return 0;
 }
-    //printf("%s ", number);
-      //  if(atoi(name)!=0)
-      //  {
-      //    printf("\b, %s\n",name);  
-      //   // sprintf(string, "\b, %s\n", name);
-      //    //strcpy(string,string);
-      //     //printf("%s", string);
-      //  }
-      //  else 
-      //  printf("%s ",name);
-
-      // sprintf(strin, "%s ", name);
-     //  printf("%s", string);
