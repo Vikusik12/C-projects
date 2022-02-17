@@ -15,3 +15,5 @@ Mějme jednoduché sériové zapojení diody a rezistoru. Známe Shockleyovu rov
 
 # Project 3
 In a given maze and its entrance there is a way out
+-----------
+Vytvořte program, který v daném bludišti a jeho vstupu najde průchod ven. Bludiště je uloženo v textovém souboru ve formě obdélníkové matice celých čísel. Cílem programu je výpis souřadnic políček bludiště, přes které vede cesta z vchodu bludiště do jeho východu.
